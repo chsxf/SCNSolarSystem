@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "8k_stars_milky_way.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "automatic"
+  }
+}
