@@ -14,6 +14,17 @@
             },
             "radius": 1,
             "distanceFromSun": 100
+        },
+        {
+            "name": "Saturn",
+            "texture": "Saturn",
+            "rings": {
+                "innerRadius": 6,
+                "outerRadius": 10,
+                "texture": "Saturn_rings"
+            },
+            "radius": 5,
+            "distanceFromSun": 150
         }
     ]
 }

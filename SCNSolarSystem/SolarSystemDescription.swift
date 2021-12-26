@@ -17,12 +17,19 @@ struct AdditionalTexturesDescription: Codable {
     let specular: String?
 }
 
+struct RingsDescription: Codable {
+    let innerRadius: Float
+    let outerRadius: Float
+    let texture: String
+}
+
 struct StellarObjectDescription: Codable {
     let name: String
     let texture: String
     let additionalTextures: AdditionalTexturesDescription?
     let radius: Float
     let distanceFromSun: Float
+    let rings: RingsDescription?
 }
 
 struct SolarSystemDescription: Codable {

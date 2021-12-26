@@ -45,6 +45,12 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             node.position = SCNVector3(stellarObject.distanceFromSun, 0, 0)
             node.name = stellarObject.name
             scene.rootNode.addChildNode(node)
+            
+            if stellarObject.rings != nil {
+                let ringsNode = createRings(withInnerRadius: stellarObject.rings!.innerRadius, outerRadius: stellarObject.rings!.outerRadius, texture: stellarObject.rings!.texture)
+                ringsNode.eulerAngles = SCNVector3(0, 0, 10)
+                node.addChildNode(ringsNode)
+            }
         }
     }
     
@@ -71,14 +77,69 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         return node
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        guard let lastTime = lastTime else {
-            lastTime = time
-            return
+    func createRings(withInnerRadius innerRadius: Float, outerRadius: Float, texture: String) -> SCNNode {
+        var vertices = [SCNVector3]()
+        var normals = [SCNVector3]()
+        var uvs = [CGPoint]()
+        var indices = [Int32]()
+        
+        let segmentCount = 96
+        
+        let deg2Rad = Float.pi / 180
+        let angleIncrement: Float = 360.0 / Float(segmentCount)
+        let uvIncrement = 1.0 / Double(segmentCount)
+        var index: Int32 = 0
+        for i in 0...segmentCount {
+            let angle = -angleIncrement * Float(i)
+            let radAngle = angle * deg2Rad
+            
+            let cosinus = cos(radAngle)
+            let sinus = sin(radAngle)
+            
+            let uvY = uvIncrement * Double(i)
+            
+            vertices.append(SCNVector3(cosinus * innerRadius, 0, sinus * innerRadius))
+            normals.append(SCNVector3(0, -1, 0))
+            uvs.append(CGPoint(x: 0.0, y: uvY))
+            
+            vertices.append(SCNVector3(cosinus * outerRadius, 0, sinus * outerRadius))
+            normals.append(SCNVector3(0, -1, 0))
+            uvs.append(CGPoint(x: 1.0, y: uvY))
+            
+            indices.append(index)
+            indices.append(index + 1)
+            index += 2
         }
         
-        let diff = time - lastTime
-        self.lastTime = time
+        let verticesSource = SCNGeometrySource(vertices: vertices)
+        let normalsSource = SCNGeometrySource(normals: normals)
+        let uvsSource = SCNGeometrySource(textureCoordinates: uvs)
+        let element = SCNGeometryElement(indices: indices, primitiveType: .triangleStrip)
+        
+        let topMaterial = SCNMaterial()
+        topMaterial.lightingModel = .blinn
+        topMaterial.diffuse.contents = texture
+        
+        let bottomMaterial = SCNMaterial()
+        bottomMaterial.lightingModel = .blinn
+        bottomMaterial.diffuse.contents = texture
+        bottomMaterial.cullMode = .front
+        
+        let geometry = SCNGeometry(sources: [verticesSource, normalsSource, uvsSource], elements: [element, element])
+        geometry.materials = [topMaterial, bottomMaterial]
+        
+        let node = SCNNode(geometry: geometry)
+        return node
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//        guard let lastTime = lastTime else {
+//            lastTime = time
+//            return
+//        }
+//
+//        let diff = time - lastTime
+//        self.lastTime = time
 //        var euler = sphereNode.eulerAngles
 //        euler.y += diff
 //        sphereNode.eulerAngles = euler
