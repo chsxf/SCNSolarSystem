@@ -10,6 +10,7 @@
 		D923ACDE2767E7C9000BB54C /* SCNSolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */; };
 		D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
 		D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
+		D984995F277921B70038BE81 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984995E277921B70038BE81 /* RotationComponent.swift */; };
 		D9E918B5277850B5007E8406 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918B4277850B5007E8406 /* Functions.swift */; };
 		D9E918B827785105007E8406 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D9E918B727785105007E8406 /* data.json */; };
 		D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */; };
@@ -21,6 +22,7 @@
 		D923ACE12767E7CC000BB54C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCNSolarSystem.entitlements; sourceTree = "<group>"; };
 		D923ACEC2767E844000BB54C /* SolarSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemView.swift; sourceTree = "<group>"; };
+		D984995E277921B70038BE81 /* RotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
 		D9E918B4277850B5007E8406 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D9E918B727785105007E8406 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemDescription.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 		D923ACDC2767E7C9000BB54C /* SCNSolarSystem */ = {
 			isa = PBXGroup;
 			children = (
+				D984995E277921B70038BE81 /* RotationComponent.swift */,
 				D923ACE12767E7CC000BB54C /* Assets.xcassets */,
 				D9E918B4277850B5007E8406 /* Functions.swift */,
 				D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */,
@@ -149,6 +152,7 @@
 				D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */,
 				D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */,
 				D9E918B5277850B5007E8406 /* Functions.swift in Sources */,
+				D984995F277921B70038BE81 /* RotationComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

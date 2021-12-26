@@ -2,20 +2,23 @@
     "backgroundTexture": "MilkyWay",
     "sun": {
         "texture": "Sun",
-        "radius": 696342
+        "radius": 696342,
+        "rotationPeriod": 27.28
     },
     "stellarObjects": [
         {
             "name": "Mercury",
             "texture": "Mercury",
             "radius": 2439,
-            "perihelion": 46001200
+            "perihelion": 46001200,
+            "rotationPeriod": 58.64
         },
         {
             "name": "Venus",
             "texture": "Venus",
             "radius": 6051,
-            "perihelion": 107476000
+            "perihelion": 107476000,
+            "rotationPeriod": -243.02
         },
         {
             "name": "Earth",
@@ -25,19 +28,22 @@
                 "specular": "Earth_specular"
             },
             "radius": 6378,
-            "perihelion": 147098074
+            "perihelion": 147098074,
+            "rotationPeriod": 0.998
         },
         {
             "name": "Mars",
             "texture": "Mars",
             "radius": 3396,
-            "perihelion": 206655000
+            "perihelion": 206655000,
+            "rotationPeriod": 1.025
         },
         {
             "name": "Jupiter",
             "texture": "Jupiter",
             "radius": 71492,
-            "perihelion": 740680000
+            "perihelion": 740680000,
+            "rotationPeriod": 0.413
         },
         {
             "name": "Saturn",
@@ -48,19 +54,22 @@
                 "texture": "Saturn_rings"
             },
             "radius": 60268,
-            "perihelion": 1349800000
+            "perihelion": 1349800000,
+            "rotationPeriod": 0.448
         },
         {
             "name": "Uranus",
             "texture": "Uranus",
             "radius": 25559,
-            "perihelion": 2735000000
+            "perihelion": 2735000000,
+            "rotationPeriod": -0.718
         },
         {
             "name": "Neptune",
             "texture": "Neptune",
             "radius": 24764,
-            "perihelion": 4458800000
+            "perihelion": 4458800000,
+            "rotationPeriod": 0.671
         }
     ]
 }

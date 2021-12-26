@@ -6,11 +6,13 @@
 //
 
 import SceneKit
-import SpriteKit
+import GameplayKit
 
 class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     
     private var lastTime: TimeInterval?
+    
+    private var entities = [GKEntity]()
     
     override init(frame frameRect: NSRect, options: [String : Any]? = nil) {
         super.init(frame: frameRect, options: options)
@@ -33,6 +35,11 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         sun.name = "Sun"
         scene.rootNode.addChildNode(sun)
         
+        let sunEntity = GKEntity()
+        let sunComponent = RotationComponent(node: sun, rotationPeriod: description.sun.engineRotationPeriod)
+        sunEntity.addComponent(sunComponent)
+        entities.append(sunEntity)
+        
         let light = SCNLight()
         light.type = .omni
         let lightNode = SCNNode()
@@ -46,9 +53,13 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             node.name = stellarObject.name
             scene.rootNode.addChildNode(node)
             
+            let planetEntity = GKEntity()
+            let planetComponent = RotationComponent(node: node, rotationPeriod: stellarObject.engineRotationPeriod)
+            planetEntity.addComponent(planetComponent)
+            entities.append(planetEntity)
+            
             if stellarObject.rings != nil {
                 let ringsNode = createRings(withInnerRadius: stellarObject.rings!.engineInnerRadius, outerRadius: stellarObject.rings!.engineOuterRadius, texture: stellarObject.rings!.texture)
-                ringsNode.eulerAngles = SCNVector3(0, 0, 10)
                 node.addChildNode(ringsNode)
             }
         }
@@ -133,16 +144,17 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//        guard let lastTime = lastTime else {
-//            lastTime = time
-//            return
-//        }
-//
-//        let diff = time - lastTime
-//        self.lastTime = time
-//        var euler = sphereNode.eulerAngles
-//        euler.y += diff
-//        sphereNode.eulerAngles = euler
+        guard let lastTime = lastTime else {
+            lastTime = time
+            return
+        }
+
+        let diff = time - lastTime
+        self.lastTime = time
+
+        for entity in entities {
+            entity.update(deltaTime: diff)
+        }
     }
     
 }

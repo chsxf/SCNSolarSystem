@@ -11,13 +11,19 @@ let SUN_RADIUS_FACTOR: Float = 250
 
 let STELLAR_OBJECT_SMALL_RADIUS_FACTOR: Float = 10
 let STELLAR_OBJECT_BIG_RADIUS_FACTOR: Float = 50
+let STELLAR_OBJECT_DISTANCE_OFFSET: Float = 2500
 let STELLAR_OBJECT_DISTANCE_FACTOR: Float = 25000
+
+let ROTATION_PERIOD_FACTOR: Float = 10
 
 struct SunDescription: Codable {
     let texture: String
     
-    private let radius: Float
+    fileprivate let radius: Float
     var engineRadius: Float { radius / SUN_RADIUS_FACTOR }
+    
+    fileprivate let rotationPeriod: Float
+    var engineRotationPeriod: Float { rotationPeriod * 10 }
 }
 
 struct AdditionalTexturesDescription: Codable {
@@ -26,10 +32,10 @@ struct AdditionalTexturesDescription: Codable {
 }
 
 struct RingsDescription: Codable {
-    private let innerRadius: Float
+    fileprivate let innerRadius: Float
     var engineInnerRadius: Float { innerRadius / STELLAR_OBJECT_BIG_RADIUS_FACTOR }
     
-    private let outerRadius: Float
+    fileprivate let outerRadius: Float
     var engineOuterRadius: Float { outerRadius / STELLAR_OBJECT_BIG_RADIUS_FACTOR }
     
     let texture: String
@@ -40,7 +46,9 @@ struct StellarObjectDescription: Codable {
     let texture: String
     let additionalTextures: AdditionalTexturesDescription?
     
-    private let radius: Float
+    let rings: RingsDescription?
+
+    fileprivate let radius: Float
     var engineRadius: Float {
         get {
             if radius < 10000 {
@@ -50,10 +58,11 @@ struct StellarObjectDescription: Codable {
         }
     }
     
-    private let perihelion: Float
-    var enginePerihelion: Float { perihelion / STELLAR_OBJECT_DISTANCE_FACTOR }
+    fileprivate let perihelion: Float
+    var enginePerihelion: Float { STELLAR_OBJECT_DISTANCE_OFFSET + perihelion / STELLAR_OBJECT_DISTANCE_FACTOR }
     
-    let rings: RingsDescription?
+    fileprivate let rotationPeriod: Float
+    var engineRotationPeriod: Float { rotationPeriod * 10 }
 }
 
 struct SolarSystemDescription: Codable {
