@@ -10,21 +10,9 @@ import SpriteKit
 
 class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     
-    private let sphereNode: SCNNode
-    
     private var lastTime: TimeInterval?
     
     override init(frame frameRect: NSRect, options: [String : Any]? = nil) {
-        let earthMaterial = SCNMaterial()
-        earthMaterial.diffuse.contents = "Earth"
-        earthMaterial.specular.contents = "Earth_specular"
-        earthMaterial.normal.contents = "Earth_normal"
-        
-        let sphere = SCNSphere(radius: 1)
-        sphere.segmentCount = 48
-        sphere.firstMaterial = earthMaterial
-        sphereNode = SCNNode(geometry: sphere)
-        
         super.init(frame: frameRect, options: options)
         
         delegate = self
@@ -34,42 +22,53 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         rendersContinuously = true
         preferredFramesPerSecond = 30
         
+        let description: SolarSystemDescription = Functions.load("data.json")
+        
         let scene = SCNScene()
         self.scene = scene
 
-        scene.background.contents = "MilkyWay"
+        scene.background.contents = description.backgroundTexture
         
-        scene.rootNode.addChildNode(sphereNode)
+        let sun = createSphere(withRadius: description.sun.radius, lightingModel: .constant, texture: description.sun.texture)
+        sun.name = "Sun"
+        scene.rootNode.addChildNode(sun)
         
         let light = SCNLight()
         light.type = .omni
         let lightNode = SCNNode()
         lightNode.light = light
-        lightNode.position = SCNVector3(-100, 0, 0)
+        lightNode.position = sun.position
         scene.rootNode.addChildNode(lightNode)
         
-        let sunMaterial = SCNMaterial()
-        sunMaterial.diffuse.contents = "Sun"
-        sunMaterial.lightingModel = .constant
-        
-        let sun = SCNSphere(radius: 10)
-        sun.segmentCount = 48
-        sun.firstMaterial = sunMaterial
-        let sunNode = SCNNode(geometry: sun)
-        sunNode.position = lightNode.position
-        scene.rootNode.addChildNode(sunNode)
-        
-        let camera = SCNCamera()
-        camera.zFar = 1000
-        let cameraNode = SCNNode()
-        cameraNode.camera = camera
-        cameraNode.position = SCNVector3(5, 0, 3)
-        cameraNode.constraints = [SCNLookAtConstraint(target: sunNode)]
-        scene.rootNode.addChildNode(cameraNode)
+        for stellarObject in description.stellarObjects {
+            let node = createSphere(withRadius: stellarObject.radius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
+            node.position = SCNVector3(stellarObject.distanceFromSun, 0, 0)
+            node.name = stellarObject.name
+            scene.rootNode.addChildNode(node)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func createSphere(withRadius radius: Float, lightingModel: SCNMaterial.LightingModel, texture: String, additionalTextures: AdditionalTexturesDescription? = nil) -> SCNNode {
+        let material = SCNMaterial()
+        material.diffuse.contents = texture
+        material.lightingModel = lightingModel
+        if additionalTextures?.normal != nil {
+            material.normal.contents = additionalTextures!.normal!
+        }
+        if additionalTextures?.specular != nil {
+            material.specular.contents = additionalTextures!.specular!
+        }
+        
+        let sphere = SCNSphere(radius: CGFloat(radius))
+        sphere.segmentCount = 48
+        sphere.firstMaterial = material
+        
+        let node = SCNNode(geometry: sphere)
+        return node
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -80,9 +79,9 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         
         let diff = time - lastTime
         self.lastTime = time
-        var euler = sphereNode.eulerAngles
-        euler.y += diff
-        sphereNode.eulerAngles = euler
+//        var euler = sphereNode.eulerAngles
+//        euler.y += diff
+//        sphereNode.eulerAngles = euler
     }
     
 }

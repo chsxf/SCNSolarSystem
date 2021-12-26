@@ -1,0 +1,19 @@
+{
+    "backgroundTexture": "MilkyWay",
+    "sun": {
+        "texture": "Sun",
+        "radius": 10
+    },
+    "stellarObjects": [
+        {
+            "name": "Earth",
+            "texture": "Earth",
+            "additionalTextures": {
+                "normal": "Earth_normal",
+                "specular": "Earth_specular"
+            },
+            "radius": 1,
+            "distanceFromSun": 100
+        }
+    ]
+}

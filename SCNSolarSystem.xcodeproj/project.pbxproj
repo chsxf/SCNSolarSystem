@@ -10,6 +10,9 @@
 		D923ACDE2767E7C9000BB54C /* SCNSolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */; };
 		D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
 		D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
+		D9E918B5277850B5007E8406 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918B4277850B5007E8406 /* Functions.swift */; };
+		D9E918B827785105007E8406 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D9E918B727785105007E8406 /* data.json */; };
+		D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,9 @@
 		D923ACE12767E7CC000BB54C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCNSolarSystem.entitlements; sourceTree = "<group>"; };
 		D923ACEC2767E844000BB54C /* SolarSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemView.swift; sourceTree = "<group>"; };
+		D9E918B4277850B5007E8406 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D9E918B727785105007E8406 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +40,7 @@
 		D923ACD12767E7C9000BB54C = {
 			isa = PBXGroup;
 			children = (
+				D9E918B6277850D3007E8406 /* Resources */,
 				D923ACDC2767E7C9000BB54C /* SCNSolarSystem */,
 				D923ACDB2767E7C9000BB54C /* Products */,
 			);
@@ -51,11 +58,21 @@
 			isa = PBXGroup;
 			children = (
 				D923ACE12767E7CC000BB54C /* Assets.xcassets */,
+				D9E918B4277850B5007E8406 /* Functions.swift */,
 				D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */,
 				D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */,
+				D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */,
 				D923ACEC2767E844000BB54C /* SolarSystemView.swift */,
 			);
 			path = SCNSolarSystem;
+			sourceTree = "<group>";
+		};
+		D9E918B6277850D3007E8406 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D9E918B727785105007E8406 /* data.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */,
+				D9E918B827785105007E8406 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D923ACDE2767E7C9000BB54C /* SCNSolarSystemApp.swift in Sources */,
+				D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */,
 				D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */,
+				D9E918B5277850B5007E8406 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
