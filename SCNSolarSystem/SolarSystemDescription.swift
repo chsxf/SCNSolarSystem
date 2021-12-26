@@ -7,9 +7,17 @@
 
 import Foundation
 
+let SUN_RADIUS_FACTOR: Float = 250
+
+let STELLAR_OBJECT_SMALL_RADIUS_FACTOR: Float = 10
+let STELLAR_OBJECT_BIG_RADIUS_FACTOR: Float = 50
+let STELLAR_OBJECT_DISTANCE_FACTOR: Float = 25000
+
 struct SunDescription: Codable {
     let texture: String
-    let radius: Float
+    
+    private let radius: Float
+    var engineRadius: Float { radius / SUN_RADIUS_FACTOR }
 }
 
 struct AdditionalTexturesDescription: Codable {
@@ -18,8 +26,12 @@ struct AdditionalTexturesDescription: Codable {
 }
 
 struct RingsDescription: Codable {
-    let innerRadius: Float
-    let outerRadius: Float
+    private let innerRadius: Float
+    var engineInnerRadius: Float { innerRadius / STELLAR_OBJECT_BIG_RADIUS_FACTOR }
+    
+    private let outerRadius: Float
+    var engineOuterRadius: Float { outerRadius / STELLAR_OBJECT_BIG_RADIUS_FACTOR }
+    
     let texture: String
 }
 
@@ -27,8 +39,20 @@ struct StellarObjectDescription: Codable {
     let name: String
     let texture: String
     let additionalTextures: AdditionalTexturesDescription?
-    let radius: Float
-    let distanceFromSun: Float
+    
+    private let radius: Float
+    var engineRadius: Float {
+        get {
+            if radius < 10000 {
+                return radius / STELLAR_OBJECT_SMALL_RADIUS_FACTOR
+            }
+            return radius / STELLAR_OBJECT_BIG_RADIUS_FACTOR
+        }
+    }
+    
+    private let perihelion: Float
+    var enginePerihelion: Float { perihelion / STELLAR_OBJECT_DISTANCE_FACTOR }
+    
     let rings: RingsDescription?
 }
 

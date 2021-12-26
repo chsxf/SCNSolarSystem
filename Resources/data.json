@@ -2,9 +2,21 @@
     "backgroundTexture": "MilkyWay",
     "sun": {
         "texture": "Sun",
-        "radius": 10
+        "radius": 696342
     },
     "stellarObjects": [
+        {
+            "name": "Mercury",
+            "texture": "Mercury",
+            "radius": 2439,
+            "perihelion": 46001200
+        },
+        {
+            "name": "Venus",
+            "texture": "Venus",
+            "radius": 6051,
+            "perihelion": 107476000
+        },
         {
             "name": "Earth",
             "texture": "Earth",
@@ -12,19 +24,44 @@
                 "normal": "Earth_normal",
                 "specular": "Earth_specular"
             },
-            "radius": 1,
-            "distanceFromSun": 100
+            "radius": 6378,
+            "perihelion": 147098074
+        },
+        {
+            "name": "Mars",
+            "texture": "Mars",
+            "radius": 3396,
+            "perihelion": 206655000
+        },
+        {
+            "name": "Jupiter",
+            "texture": "Jupiter",
+            "radius": 71492,
+            "perihelion": 740680000
         },
         {
             "name": "Saturn",
             "texture": "Saturn",
             "rings": {
-                "innerRadius": 6,
-                "outerRadius": 10,
+                "innerRadius": 75000,
+                "outerRadius": 137000,
                 "texture": "Saturn_rings"
             },
-            "radius": 5,
-            "distanceFromSun": 150
+            "radius": 60268,
+            "perihelion": 1349800000
+        },
+        {
+            "name": "Uranus",
+            "texture": "Uranus",
+            "radius": 25559,
+            "perihelion": 2735000000
+        },
+        {
+            "name": "Neptune",
+            "texture": "Neptune",
+            "radius": 24764,
+            "perihelion": 4458800000
         }
     ]
 }
+

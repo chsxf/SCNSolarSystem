@@ -29,7 +29,7 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
 
         scene.background.contents = description.backgroundTexture
         
-        let sun = createSphere(withRadius: description.sun.radius, lightingModel: .constant, texture: description.sun.texture)
+        let sun = createSphere(withRadius: description.sun.engineRadius, lightingModel: .constant, texture: description.sun.texture)
         sun.name = "Sun"
         scene.rootNode.addChildNode(sun)
         
@@ -41,13 +41,13 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         scene.rootNode.addChildNode(lightNode)
         
         for stellarObject in description.stellarObjects {
-            let node = createSphere(withRadius: stellarObject.radius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
-            node.position = SCNVector3(stellarObject.distanceFromSun, 0, 0)
+            let node = createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
+            node.position = SCNVector3(stellarObject.enginePerihelion, 0, 0)
             node.name = stellarObject.name
             scene.rootNode.addChildNode(node)
             
             if stellarObject.rings != nil {
-                let ringsNode = createRings(withInnerRadius: stellarObject.rings!.innerRadius, outerRadius: stellarObject.rings!.outerRadius, texture: stellarObject.rings!.texture)
+                let ringsNode = createRings(withInnerRadius: stellarObject.rings!.engineInnerRadius, outerRadius: stellarObject.rings!.engineOuterRadius, texture: stellarObject.rings!.texture)
                 ringsNode.eulerAngles = SCNVector3(0, 0, 10)
                 node.addChildNode(ringsNode)
             }
