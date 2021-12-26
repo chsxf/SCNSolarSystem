@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "2k_earth_specular_map.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

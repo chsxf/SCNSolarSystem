@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "2k_venus_atmosphere.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

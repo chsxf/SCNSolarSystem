@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "2k_mercury.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
