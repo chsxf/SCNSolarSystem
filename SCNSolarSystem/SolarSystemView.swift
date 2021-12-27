@@ -43,9 +43,17 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         let light = SCNLight()
         light.type = .omni
         let lightNode = SCNNode()
+        lightNode.name = "Sun Light"
         lightNode.light = light
-        lightNode.position = sun.position
         scene.rootNode.addChildNode(lightNode)
+        
+        let ambientLight = SCNLight()
+        ambientLight.type = .ambient
+        ambientLight.intensity = 20
+        let ambientLightNode = SCNNode()
+        ambientLightNode.name = "Ambient Space Light"
+        ambientLightNode.light = ambientLight
+        scene.rootNode.addChildNode(ambientLightNode)
         
         for stellarObject in description.stellarObjects {
             let node = createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
