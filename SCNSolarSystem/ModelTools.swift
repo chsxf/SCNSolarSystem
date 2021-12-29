@@ -121,7 +121,7 @@ class ModelTools {
         return node
     }
     
-    fileprivate static func computeSemiMinorAxis(withAphelion aphelion: Float, perihelion: Float, eccentricity: Float) -> Float {
+    static func computeSemiMinorAxis(withAphelion aphelion: Float, perihelion: Float, eccentricity: Float) -> Float {
         let semiMajorAxis = (aphelion + perihelion) / 2
         if eccentricity > 0 && eccentricity < 1 {
             let perihelionToDirectrix = perihelion / eccentricity

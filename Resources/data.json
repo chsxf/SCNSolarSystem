@@ -16,7 +16,8 @@
             "rotationPeriod": 58.64,
             "axialTilt": 0.0352,
             "orbitalInclination": 7,
-            "orbitalNode": 48.33
+            "orbitalNode": 48.33,
+            "orbitalPeriod": 87.969
         },
         {
             "name": "Venus",
@@ -28,7 +29,8 @@
             "rotationPeriod": -243.02,
             "axialTilt": 177.36,
             "orbitalInclination": 3.39471,
-            "orbitalNode": 76.68
+            "orbitalNode": 76.68,
+            "orbitalPeriod": 224.667
         },
         {
             "name": "Earth",
@@ -44,7 +46,8 @@
             "rotationPeriod": 0.998,
             "axialTilt": 23.4366,
             "orbitalInclination": 0,
-            "orbitalNode": 174.873
+            "orbitalNode": 174.873,
+            "orbitalPeriod": 365.256
         },
         {
             "name": "Mars",
@@ -56,7 +59,8 @@
             "rotationPeriod": 1.025,
             "axialTilt": 25.19,
             "orbitalInclination": 1.85,
-            "orbitalNode": 49.6
+            "orbitalNode": 49.6,
+            "orbitalPeriod": 686.885
         },
         {
             "name": "Jupiter",
@@ -68,7 +72,8 @@
             "rotationPeriod": 0.413,
             "axialTilt": 3.12,
             "orbitalInclination": 1.304,
-            "orbitalNode": 100.5
+            "orbitalNode": 100.5,
+            "orbitalPeriod": 4332.01
         },
         {
             "name": "Saturn",
@@ -85,7 +90,8 @@
             "rotationPeriod": 0.448,
             "axialTilt": 26.73,
             "orbitalInclination": 2.486,
-            "orbitalNode": 113.7
+            "orbitalNode": 113.7,
+            "orbitalPeriod": 10754
         },
         {
             "name": "Uranus",
@@ -97,7 +103,8 @@
             "rotationPeriod": -0.718,
             "axialTilt": 97.8,
             "orbitalInclination": 0.773,
-            "orbitalNode": 74.02
+            "orbitalNode": 74.02,
+            "orbitalPeriod": 30698
         },
         {
             "name": "Neptune",
@@ -109,7 +116,8 @@
             "rotationPeriod": 0.671,
             "axialTilt": 28.32,
             "orbitalInclination": 1.77,
-            "orbitalNode": 131.784
+            "orbitalNode": 131.784,
+            "orbitalPeriod": 60216
         }
     ]
 }

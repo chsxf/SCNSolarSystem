@@ -13,7 +13,7 @@ let STELLAR_OBJECT_SMALL_RADIUS_FACTOR: Float = 10
 let STELLAR_OBJECT_BIG_RADIUS_FACTOR: Float = 50
 let STELLAR_OBJECT_DISTANCE_FACTOR: Float = 10000
 
-let ROTATION_PERIOD_FACTOR: Float = 10
+let PERIOD_FACTOR: Float = 10
 
 struct SunDescription: Codable {
     let texture: String
@@ -66,11 +66,14 @@ struct StellarObjectDescription: Codable {
     let eccentricity: Float
     
     fileprivate let rotationPeriod: Float
-    var engineRotationPeriod: Float { rotationPeriod * 10 }
+    var engineRotationPeriod: Float { rotationPeriod * PERIOD_FACTOR }
     
     let axialTilt: Float
     let orbitalInclination: Float
     let orbitalNode: Float
+    
+    fileprivate let orbitalPeriod: Float
+    var engineOrbitalPeriod: Float { orbitalPeriod * PERIOD_FACTOR }
 }
 
 struct SolarSystemDescription: Codable {

@@ -72,19 +72,14 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             revolutionRoot.eulerAngles = SCNVector3(0, 0, -stellarObject.axialTilt * ModelTools.deg2Rad)
             inclinationRoot.addChildNode(revolutionRoot)
             
-            let node = ModelTools.createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
-            node.name = stellarObject.name
-            revolutionRoot.addChildNode(node)
-            
-            let planetEntity = GKEntity()
-            let planetComponent = RotationComponent(node: node, rotationPeriod: stellarObject.engineRotationPeriod)
-            planetEntity.addComponent(planetComponent)
-            entities.append(planetEntity)
+            let planetNode = ModelTools.createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
+            planetNode.name = stellarObject.name
+            revolutionRoot.addChildNode(planetNode)
             
             if stellarObject.rings != nil {
                 let ringsNode = ModelTools.createRings(withInnerRadius: stellarObject.rings!.engineInnerRadius, outerRadius: stellarObject.rings!.engineOuterRadius, texture: stellarObject.rings!.texture)
                 ringsNode.name = "\(stellarObject.name) rings"
-                node.addChildNode(ringsNode)
+                planetNode.addChildNode(ringsNode)
             }
             
             let semiMajorAxis = (stellarObject.engineAphelion + stellarObject.enginePerihelion) / 2
@@ -93,6 +88,14 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             ell.name = "\(stellarObject.name) trajectory"
             ell.position = SCNVector3(-offset, 0, 0)
             inclinationRoot.addChildNode(ell)
+            
+            let planetEntity = GKEntity()
+            let planetComponent = RotationComponent(node: planetNode, rotationPeriod: stellarObject.engineRotationPeriod)
+            planetEntity.addComponent(planetComponent)
+            let semiMinorAxis = ModelTools.computeSemiMinorAxis(withAphelion: stellarObject.engineAphelion, perihelion: stellarObject.enginePerihelion, eccentricity: stellarObject.eccentricity)
+            let orbitComponent = OrbitComponent(node: revolutionRoot, orbitalPeriod: stellarObject.engineOrbitalPeriod, perihelion: stellarObject.enginePerihelion, semiMajorAxis: semiMajorAxis, semiMinorAxis: semiMinorAxis)
+            planetEntity.addComponent(orbitComponent)
+            entities.append(planetEntity)
         }
     }
     
