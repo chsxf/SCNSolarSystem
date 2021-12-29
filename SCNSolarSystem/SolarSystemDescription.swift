@@ -11,8 +11,7 @@ let SUN_RADIUS_FACTOR: Float = 250
 
 let STELLAR_OBJECT_SMALL_RADIUS_FACTOR: Float = 10
 let STELLAR_OBJECT_BIG_RADIUS_FACTOR: Float = 50
-let STELLAR_OBJECT_DISTANCE_OFFSET: Float = 2500
-let STELLAR_OBJECT_DISTANCE_FACTOR: Float = 25000
+let STELLAR_OBJECT_DISTANCE_FACTOR: Float = 10000
 
 let ROTATION_PERIOD_FACTOR: Float = 10
 
@@ -59,7 +58,12 @@ struct StellarObjectDescription: Codable {
     }
     
     fileprivate let perihelion: Float
-    var enginePerihelion: Float { STELLAR_OBJECT_DISTANCE_OFFSET + perihelion / STELLAR_OBJECT_DISTANCE_FACTOR }
+    var enginePerihelion: Float { perihelion / STELLAR_OBJECT_DISTANCE_FACTOR }
+    
+    fileprivate let aphelion: Float
+    var engineAphelion: Float { aphelion / STELLAR_OBJECT_DISTANCE_FACTOR }
+
+    let eccentricity: Float
     
     fileprivate let rotationPeriod: Float
     var engineRotationPeriod: Float { rotationPeriod * 10 }

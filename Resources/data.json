@@ -11,6 +11,8 @@
             "texture": "Mercury",
             "radius": 2439,
             "perihelion": 46001200,
+            "aphelion": 69816900,
+            "eccentricity": 0.2056,
             "rotationPeriod": 58.64
         },
         {
@@ -18,6 +20,8 @@
             "texture": "Venus",
             "radius": 6051,
             "perihelion": 107476000,
+            "aphelion": 108943000,
+            "eccentricity": 0.00678,
             "rotationPeriod": -243.02
         },
         {
@@ -29,6 +33,8 @@
             },
             "radius": 6378,
             "perihelion": 147098074,
+            "aphelion": 152097701,
+            "eccentricity": 0.01671022,
             "rotationPeriod": 0.998
         },
         {
@@ -36,6 +42,8 @@
             "texture": "Mars",
             "radius": 3396,
             "perihelion": 206655000,
+            "aphelion": 249230000,
+            "eccentricity": 0.09339,
             "rotationPeriod": 1.025
         },
         {
@@ -43,6 +51,8 @@
             "texture": "Jupiter",
             "radius": 71492,
             "perihelion": 740680000,
+            "aphelion": 816000000,
+            "eccentricity": 0.04839,
             "rotationPeriod": 0.413
         },
         {
@@ -55,6 +65,8 @@
             },
             "radius": 60268,
             "perihelion": 1349800000,
+            "aphelion": 1503500000,
+            "eccentricity": 0.0539,
             "rotationPeriod": 0.448
         },
         {
@@ -62,6 +74,8 @@
             "texture": "Uranus",
             "radius": 25559,
             "perihelion": 2735000000,
+            "aphelion": 3006300000,
+            "eccentricity": 0.04726,
             "rotationPeriod": -0.718
         },
         {
@@ -69,8 +83,9 @@
             "texture": "Neptune",
             "radius": 24764,
             "perihelion": 4458800000,
+            "aphelion": 4537000000,
+            "eccentricity": 0.00859,
             "rotationPeriod": 0.671
         }
     ]
 }
-

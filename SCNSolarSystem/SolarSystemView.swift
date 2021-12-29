@@ -56,10 +56,14 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         scene.rootNode.addChildNode(ambientLightNode)
         
         for stellarObject in description.stellarObjects {
+            let stellarObjectRoot = SCNNode()
+            stellarObjectRoot.name = "\(stellarObject.name) root"
+            scene.rootNode.addChildNode(stellarObjectRoot)
+            
             let node = ModelTools.createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
             node.position = SCNVector3(stellarObject.enginePerihelion, 0, 0)
             node.name = stellarObject.name
-            scene.rootNode.addChildNode(node)
+            stellarObjectRoot.addChildNode(node)
             
             let planetEntity = GKEntity()
             let planetComponent = RotationComponent(node: node, rotationPeriod: stellarObject.engineRotationPeriod)
@@ -68,8 +72,16 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             
             if stellarObject.rings != nil {
                 let ringsNode = ModelTools.createRings(withInnerRadius: stellarObject.rings!.engineInnerRadius, outerRadius: stellarObject.rings!.engineOuterRadius, texture: stellarObject.rings!.texture)
+                ringsNode.name = "\(stellarObject.name) rings"
                 node.addChildNode(ringsNode)
             }
+            
+            let semiMajorAxis = (stellarObject.engineAphelion + stellarObject.enginePerihelion) / 2
+            let offset = semiMajorAxis - stellarObject.enginePerihelion
+            let ell = ModelTools.createEllipsis(withAphelion: stellarObject.engineAphelion, perihelion: stellarObject.enginePerihelion, eccentricity: stellarObject.eccentricity)
+            ell.name = "\(stellarObject.name) trajectory"
+            ell.position = SCNVector3(-offset, 0, 0)
+            stellarObjectRoot.addChildNode(ell)
         }
     }
     

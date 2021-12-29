@@ -10,6 +10,8 @@ import SceneKit
 
 class ModelTools {
     
+    static let deg2Rad = Float.pi / 180
+    
     static func createSphere(withRadius radius: Float, lightingModel: SCNMaterial.LightingModel, texture: String, additionalTextures: AdditionalTexturesDescription? = nil) -> SCNNode {
         let material = SCNMaterial()
         material.diffuse.contents = texture
@@ -37,7 +39,6 @@ class ModelTools {
         
         let segmentCount = 96
         
-        let deg2Rad = Float.pi / 180
         let angleIncrement: Float = 360.0 / Float(segmentCount)
         let uvIncrement = 1.0 / Double(segmentCount)
         var index: Int32 = 0
@@ -82,6 +83,58 @@ class ModelTools {
         
         let node = SCNNode(geometry: geometry)
         return node
+    }
+    
+    static func createEllipsis(withAphelion aphelion: Float, perihelion: Float, eccentricity: Float) -> SCNNode {
+        let semiMajorAxis = (aphelion + perihelion) / 2
+        let semiMinorAxis = computeSemiMinorAxis(withAphelion: aphelion, perihelion: perihelion, eccentricity: eccentricity)
+        
+        var vertices = [SCNVector3]()
+        var indices = [Int32]()
+        
+        let segmentCount = 96
+        
+        let angleIncrement: Float = 360.0 / Float(segmentCount)
+        for i in 0..<segmentCount {
+            let angle = angleIncrement * Float(i)
+            let radAngle = angle * deg2Rad
+            
+            let cosinus = cos(radAngle)
+            let sinus = sin(radAngle)
+            
+            vertices.append(SCNVector3(cosinus * semiMajorAxis, 0,  sinus * semiMinorAxis))
+            indices.append(Int32(i))
+            indices.append(Int32((i + 1) % segmentCount))
+        }
+        
+        let verticesSource = SCNGeometrySource(vertices: vertices)
+        let element = SCNGeometryElement(indices: indices, primitiveType: .line)
+        
+        let material = SCNMaterial()
+        material.lightingModel = .constant
+        material.diffuse.contents = NSColor.white
+        
+        let geometry = SCNGeometry(sources: [verticesSource], elements: [element])
+        geometry.firstMaterial = material
+        
+        let node = SCNNode(geometry: geometry)
+        return node
+    }
+    
+    fileprivate static func computeSemiMinorAxis(withAphelion aphelion: Float, perihelion: Float, eccentricity: Float) -> Float {
+        let semiMajorAxis = (aphelion + perihelion) / 2
+        if eccentricity > 0 && eccentricity < 1 {
+            let perihelionToDirectrix = perihelion / eccentricity
+            let centerToDirectrix = perihelionToDirectrix + semiMajorAxis
+            let focalPointToTop = centerToDirectrix * eccentricity
+            let focalPointToCenter = semiMajorAxis - perihelion
+            let focalPointToTopAngle = acos(focalPointToCenter / focalPointToTop)
+            let semiMinorAxis = sin(focalPointToTopAngle) * focalPointToTop
+            return semiMinorAxis
+        }
+        else {
+            return semiMajorAxis
+        }
     }
     
 }
