@@ -58,13 +58,19 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         for stellarObject in description.stellarObjects {
             let stellarObjectRoot = SCNNode()
             stellarObjectRoot.name = "\(stellarObject.name) root"
+            stellarObjectRoot.eulerAngles = SCNVector3(0, stellarObject.orbitalNode * ModelTools.deg2Rad, 0)
             scene.rootNode.addChildNode(stellarObjectRoot)
+            
+            let inclinationRoot = SCNNode()
+            inclinationRoot.name = "\(stellarObject.name) inclination root"
+            inclinationRoot.eulerAngles = SCNVector3(0, 0, stellarObject.orbitalInclination * ModelTools.deg2Rad)
+            stellarObjectRoot.addChildNode(inclinationRoot)
             
             let revolutionRoot = SCNNode()
             revolutionRoot.name = "\(stellarObject.name) revolution root"
             revolutionRoot.position = SCNVector3(stellarObject.enginePerihelion, 0, 0)
             revolutionRoot.eulerAngles = SCNVector3(0, 0, -stellarObject.axialTilt * ModelTools.deg2Rad)
-            stellarObjectRoot.addChildNode(revolutionRoot)
+            inclinationRoot.addChildNode(revolutionRoot)
             
             let node = ModelTools.createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
             node.name = stellarObject.name
@@ -86,7 +92,7 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             let ell = ModelTools.createEllipsis(withAphelion: stellarObject.engineAphelion, perihelion: stellarObject.enginePerihelion, eccentricity: stellarObject.eccentricity)
             ell.name = "\(stellarObject.name) trajectory"
             ell.position = SCNVector3(-offset, 0, 0)
-            stellarObjectRoot.addChildNode(ell)
+            inclinationRoot.addChildNode(ell)
         }
     }
     

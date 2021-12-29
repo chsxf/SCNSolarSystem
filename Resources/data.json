@@ -14,7 +14,9 @@
             "aphelion": 69816900,
             "eccentricity": 0.2056,
             "rotationPeriod": 58.64,
-            "axialTilt": 0.0352
+            "axialTilt": 0.0352,
+            "orbitalInclination": 7,
+            "orbitalNode": 48.33
         },
         {
             "name": "Venus",
@@ -24,7 +26,9 @@
             "aphelion": 108943000,
             "eccentricity": 0.00678,
             "rotationPeriod": -243.02,
-            "axialTilt": 177.36
+            "axialTilt": 177.36,
+            "orbitalInclination": 3.39471,
+            "orbitalNode": 76.68
         },
         {
             "name": "Earth",
@@ -38,7 +42,9 @@
             "aphelion": 152097701,
             "eccentricity": 0.01671022,
             "rotationPeriod": 0.998,
-            "axialTilt": 23.4366
+            "axialTilt": 23.4366,
+            "orbitalInclination": 0,
+            "orbitalNode": 174.873
         },
         {
             "name": "Mars",
@@ -48,7 +54,9 @@
             "aphelion": 249230000,
             "eccentricity": 0.09339,
             "rotationPeriod": 1.025,
-            "axialTilt": 25.19
+            "axialTilt": 25.19,
+            "orbitalInclination": 1.85,
+            "orbitalNode": 49.6
         },
         {
             "name": "Jupiter",
@@ -58,7 +66,9 @@
             "aphelion": 816000000,
             "eccentricity": 0.04839,
             "rotationPeriod": 0.413,
-            "axialTilt": 3.12
+            "axialTilt": 3.12,
+            "orbitalInclination": 1.304,
+            "orbitalNode": 100.5
         },
         {
             "name": "Saturn",
@@ -73,7 +83,9 @@
             "aphelion": 1503500000,
             "eccentricity": 0.0539,
             "rotationPeriod": 0.448,
-            "axialTilt": 26.73
+            "axialTilt": 26.73,
+            "orbitalInclination": 2.486,
+            "orbitalNode": 113.7
         },
         {
             "name": "Uranus",
@@ -83,7 +95,9 @@
             "aphelion": 3006300000,
             "eccentricity": 0.04726,
             "rotationPeriod": -0.718,
-            "axialTilt": 97.8
+            "axialTilt": 97.8,
+            "orbitalInclination": 0.773,
+            "orbitalNode": 74.02
         },
         {
             "name": "Neptune",
@@ -93,7 +107,9 @@
             "aphelion": 4537000000,
             "eccentricity": 0.00859,
             "rotationPeriod": 0.671,
-            "axialTilt": 28.32
+            "axialTilt": 28.32,
+            "orbitalInclination": 1.77,
+            "orbitalNode": 131.784
         }
     ]
 }
