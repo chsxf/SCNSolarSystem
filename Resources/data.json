@@ -13,7 +13,8 @@
             "perihelion": 46001200,
             "aphelion": 69816900,
             "eccentricity": 0.2056,
-            "rotationPeriod": 58.64
+            "rotationPeriod": 58.64,
+            "axialTilt": 0.0352
         },
         {
             "name": "Venus",
@@ -22,7 +23,8 @@
             "perihelion": 107476000,
             "aphelion": 108943000,
             "eccentricity": 0.00678,
-            "rotationPeriod": -243.02
+            "rotationPeriod": -243.02,
+            "axialTilt": 177.36
         },
         {
             "name": "Earth",
@@ -35,7 +37,8 @@
             "perihelion": 147098074,
             "aphelion": 152097701,
             "eccentricity": 0.01671022,
-            "rotationPeriod": 0.998
+            "rotationPeriod": 0.998,
+            "axialTilt": 23.4366
         },
         {
             "name": "Mars",
@@ -44,7 +47,8 @@
             "perihelion": 206655000,
             "aphelion": 249230000,
             "eccentricity": 0.09339,
-            "rotationPeriod": 1.025
+            "rotationPeriod": 1.025,
+            "axialTilt": 25.19
         },
         {
             "name": "Jupiter",
@@ -53,7 +57,8 @@
             "perihelion": 740680000,
             "aphelion": 816000000,
             "eccentricity": 0.04839,
-            "rotationPeriod": 0.413
+            "rotationPeriod": 0.413,
+            "axialTilt": 3.12
         },
         {
             "name": "Saturn",
@@ -67,7 +72,8 @@
             "perihelion": 1349800000,
             "aphelion": 1503500000,
             "eccentricity": 0.0539,
-            "rotationPeriod": 0.448
+            "rotationPeriod": 0.448,
+            "axialTilt": 26.73
         },
         {
             "name": "Uranus",
@@ -76,7 +82,8 @@
             "perihelion": 2735000000,
             "aphelion": 3006300000,
             "eccentricity": 0.04726,
-            "rotationPeriod": -0.718
+            "rotationPeriod": -0.718,
+            "axialTilt": 97.8
         },
         {
             "name": "Neptune",
@@ -85,7 +92,8 @@
             "perihelion": 4458800000,
             "aphelion": 4537000000,
             "eccentricity": 0.00859,
-            "rotationPeriod": 0.671
+            "rotationPeriod": 0.671,
+            "axialTilt": 28.32
         }
     ]
 }

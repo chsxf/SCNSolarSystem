@@ -60,10 +60,15 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             stellarObjectRoot.name = "\(stellarObject.name) root"
             scene.rootNode.addChildNode(stellarObjectRoot)
             
+            let revolutionRoot = SCNNode()
+            revolutionRoot.name = "\(stellarObject.name) revolution root"
+            revolutionRoot.position = SCNVector3(stellarObject.enginePerihelion, 0, 0)
+            revolutionRoot.eulerAngles = SCNVector3(0, 0, -stellarObject.axialTilt * ModelTools.deg2Rad)
+            stellarObjectRoot.addChildNode(revolutionRoot)
+            
             let node = ModelTools.createSphere(withRadius: stellarObject.engineRadius, lightingModel: .blinn, texture: stellarObject.texture, additionalTextures: stellarObject.additionalTextures)
-            node.position = SCNVector3(stellarObject.enginePerihelion, 0, 0)
             node.name = stellarObject.name
-            stellarObjectRoot.addChildNode(node)
+            revolutionRoot.addChildNode(node)
             
             let planetEntity = GKEntity()
             let planetComponent = RotationComponent(node: node, rotationPeriod: stellarObject.engineRotationPeriod)

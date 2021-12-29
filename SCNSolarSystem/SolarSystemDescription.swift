@@ -67,6 +67,8 @@ struct StellarObjectDescription: Codable {
     
     fileprivate let rotationPeriod: Float
     var engineRotationPeriod: Float { rotationPeriod * 10 }
+    
+    let axialTilt: Float
 }
 
 struct SolarSystemDescription: Codable {
