@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90C105A2783918600ED9F11 /* ExhaustParticles.scn in Resources */ = {isa = PBXBuildFile; fileRef = D90C10592783918600ED9F11 /* ExhaustParticles.scn */; };
 		D923ACDE2767E7C9000BB54C /* SCNSolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */; };
 		D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
 		D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
 		D984995F277921B70038BE81 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984995E277921B70038BE81 /* RotationComponent.swift */; };
 		D9852F70277B839C006E6C42 /* ModelTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9852F6F277B839C006E6C42 /* ModelTools.swift */; };
 		D9B825DD277CD28400B8C101 /* OrbitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B825DC277CD28400B8C101 /* OrbitComponent.swift */; };
+		D9E8CEDF27824BFA005277FC /* Toy_rocket.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D9E8CEDE27824BFA005277FC /* Toy_rocket.usdz */; };
+		D9E8CEE227824FE3005277FC /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E8CEE127824FE3005277FC /* Rocket.swift */; };
 		D9E918B5277850B5007E8406 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918B4277850B5007E8406 /* Functions.swift */; };
 		D9E918B827785105007E8406 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D9E918B727785105007E8406 /* data.json */; };
 		D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D90C10592783918600ED9F11 /* ExhaustParticles.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ExhaustParticles.scn; sourceTree = "<group>"; };
 		D923ACDA2767E7C9000BB54C /* SCNSolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCNSolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNSolarSystemApp.swift; sourceTree = "<group>"; };
 		D923ACE12767E7CC000BB54C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,6 +31,8 @@
 		D984995E277921B70038BE81 /* RotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
 		D9852F6F277B839C006E6C42 /* ModelTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTools.swift; sourceTree = "<group>"; };
 		D9B825DC277CD28400B8C101 /* OrbitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitComponent.swift; sourceTree = "<group>"; };
+		D9E8CEDE27824BFA005277FC /* Toy_rocket.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Toy_rocket.usdz; sourceTree = "<group>"; };
+		D9E8CEE127824FE3005277FC /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		D9E918B4277850B5007E8406 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D9E918B727785105007E8406 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemDescription.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 				D9E918B4277850B5007E8406 /* Functions.swift */,
 				D9852F6F277B839C006E6C42 /* ModelTools.swift */,
 				D9B825DC277CD28400B8C101 /* OrbitComponent.swift */,
+				D9E8CEE027824FD8005277FC /* Rocket */,
 				D984995E277921B70038BE81 /* RotationComponent.swift */,
 				D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */,
 				D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */,
@@ -75,11 +82,21 @@
 			path = SCNSolarSystem;
 			sourceTree = "<group>";
 		};
+		D9E8CEE027824FD8005277FC /* Rocket */ = {
+			isa = PBXGroup;
+			children = (
+				D9E8CEE127824FE3005277FC /* Rocket.swift */,
+			);
+			path = Rocket;
+			sourceTree = "<group>";
+		};
 		D9E918B6277850D3007E8406 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				D923ACE12767E7CC000BB54C /* Assets.xcassets */,
 				D9E918B727785105007E8406 /* data.json */,
+				D90C10592783918600ED9F11 /* ExhaustParticles.scn */,
+				D9E8CEDE27824BFA005277FC /* Toy_rocket.usdz */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -144,6 +161,8 @@
 			files = (
 				D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */,
 				D9E918B827785105007E8406 /* data.json in Resources */,
+				D9E8CEDF27824BFA005277FC /* Toy_rocket.usdz in Resources */,
+				D90C105A2783918600ED9F11 /* ExhaustParticles.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +180,7 @@
 				D9852F70277B839C006E6C42 /* ModelTools.swift in Sources */,
 				D9E918B5277850B5007E8406 /* Functions.swift in Sources */,
 				D984995F277921B70038BE81 /* RotationComponent.swift in Sources */,
+				D9E8CEE227824FE3005277FC /* Rocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

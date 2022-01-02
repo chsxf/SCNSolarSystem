@@ -14,13 +14,14 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     
     private var entities = [GKEntity]()
     
+    private var rocket: Rocket!
+    
     override init(frame frameRect: NSRect, options: [String : Any]? = nil) {
         super.init(frame: frameRect, options: options)
         
         delegate = self
         
         showsStatistics = true
-        allowsCameraControl = true
         rendersContinuously = true
         preferredFramesPerSecond = 30
         
@@ -55,7 +56,10 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         ambientLightNode.light = ambientLight
         scene.rootNode.addChildNode(ambientLightNode)
         
+        var maxAphelion: Float = 0
         for stellarObject in description.stellarObjects {
+            maxAphelion = max(stellarObject.engineAphelion, maxAphelion)
+            
             let stellarObjectRoot = SCNNode()
             stellarObjectRoot.name = "\(stellarObject.name) root"
             stellarObjectRoot.eulerAngles = SCNVector3(0, stellarObject.orbitalNode * ModelTools.deg2Rad, 0)
@@ -97,6 +101,8 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
             planetEntity.addComponent(orbitComponent)
             entities.append(planetEntity)
         }
+        
+        rocket = Rocket(inScene: scene, withMaxAphelion: maxAphelion)
     }
     
     required init?(coder: NSCoder) {
@@ -115,6 +121,8 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         for entity in entities {
             entity.update(deltaTime: diff)
         }
+        
+        rocket.update(deltaTime: diff)
     }
     
 }
