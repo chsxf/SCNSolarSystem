@@ -63,7 +63,6 @@
 		D923ACDC2767E7C9000BB54C /* SCNSolarSystem */ = {
 			isa = PBXGroup;
 			children = (
-				D923ACE12767E7CC000BB54C /* Assets.xcassets */,
 				D9E918B4277850B5007E8406 /* Functions.swift */,
 				D9852F6F277B839C006E6C42 /* ModelTools.swift */,
 				D9B825DC277CD28400B8C101 /* OrbitComponent.swift */,
@@ -79,6 +78,7 @@
 		D9E918B6277850D3007E8406 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D923ACE12767E7CC000BB54C /* Assets.xcassets */,
 				D9E918B727785105007E8406 /* data.json */,
 			);
 			path = Resources;
