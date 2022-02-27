@@ -10,7 +10,7 @@ import SceneKit.ModelIO
 import GameController
 import SpriteKit
 
-class Rocket {
+class Rocket : NSResponder {
     
     fileprivate let EXHAUST_LIGHT_INTENSITY: CGFloat = 2000
     
@@ -74,6 +74,8 @@ class Rocket {
         cameraNode.eulerAngles = SCNVector3(0, Float.pi, 0)
         rocketRootNode.addChildNode(cameraNode)
         
+        super.init()
+        
         disableEngine()
         
         let notificationCenter = NotificationCenter.default
@@ -81,6 +83,10 @@ class Rocket {
         notificationCenter.addObserver(forName: .GCControllerDidConnect, object: nil, queue: mainQueue) { notif in
             self.gameControllerDidConnect(notif.object as! GCController)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     fileprivate static func changeMaterialsLightingModelRecursively(node: SCNNode) {
@@ -124,7 +130,15 @@ class Rocket {
     }
     
     private func onAButtonValueChanged(buttonInput: GCControllerButtonInput, pressure: Float, pressed: Bool) {
-        if pressed {
+        updateEngineStatus(enabled: pressed)
+    }
+    
+    private func onBButtonValueChanged(buttonInput: GCControllerButtonInput, pressure: Float, pressed: Bool) {
+        
+    }
+    
+    func updateEngineStatus(enabled: Bool) {
+        if enabled {
             enableEngine()
         }
         else {
@@ -132,15 +146,13 @@ class Rocket {
         }
     }
     
-    private func onBButtonValueChanged(buttonInput: GCControllerButtonInput, pressure: Float, pressed: Bool) {
-        
+    private func onLeftThumpstickValueChanged(directionPad: GCControllerDirectionPad, xValue: Float, yValue: Float) {
+        updateDirections(xValue: xValue, yValue: yValue)
     }
     
-    private func onLeftThumpstickValueChanged(directionPad: GCControllerDirectionPad, xValue: Float, yValue: Float) {
+    func updateDirections(xValue: Float, yValue: Float) {
         stickXValue = xValue
         stickYValue = yValue
-        
-        print(stickXValue)
     }
     
     func update(deltaTime: TimeInterval) {
@@ -152,6 +164,54 @@ class Rocket {
         
         if engineStarted {
             rocketRootNode.localTranslate(by: SCNVector3(x: 0, y: 0, z: 25000.0 * CGFloat(deltaTime)))
+        }
+    }
+    
+    override func keyUp(with event: NSEvent) {
+        switch Keycode(rawValue: event.keyCode)! {
+        case Keycode.space:
+            updateEngineStatus(enabled: false)
+            break
+        case .upArrow:
+            updateDirections(xValue: stickXValue, yValue: stickYValue - 1)
+            break
+        case .downArrow:
+            updateDirections(xValue: stickXValue, yValue: stickYValue + 1)
+            break
+        case .leftArrow:
+            updateDirections(xValue: stickXValue + 1, yValue: stickYValue)
+            break
+        case .rightArrow:
+            updateDirections(xValue: stickXValue - 1, yValue: stickYValue)
+            break
+        default:
+            break
+        }
+    }
+    
+    override func keyDown(with event: NSEvent) {
+        if event.isARepeat {
+            return
+        }
+        
+        switch Keycode(rawValue: event.keyCode)! {
+        case .space:
+            updateEngineStatus(enabled: true)
+            break
+        case .upArrow:
+            updateDirections(xValue: stickXValue, yValue: stickYValue + 1)
+            break
+        case .downArrow:
+            updateDirections(xValue: stickXValue, yValue: stickYValue - 1)
+            break
+        case .leftArrow:
+            updateDirections(xValue: stickXValue - 1, yValue: stickYValue)
+            break
+        case .rightArrow:
+            updateDirections(xValue: stickXValue + 1, yValue: stickYValue)
+            break
+        default:
+            break
         }
     }
 }

@@ -125,4 +125,8 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         rocket.update(deltaTime: diff)
     }
     
+    func setupFirstResponder() {
+        window!.makeFirstResponder(rocket)
+    }
+    
 }

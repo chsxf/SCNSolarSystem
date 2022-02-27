@@ -24,7 +24,11 @@ If you want to play on your iPhone or iPad, please clone this repository, open t
 
 ## Keyboard
 
-TBD
+| Key              | Command                                 |
+| ---------------- | --------------------------------------- |
+| Space            | Enable thrust                           |
+| Up/Down Arrow    | Move the rocket up or down              |
+| Left/Right Arrow | Rotate the rocket towards left or right |
 
 ## Game Controller
 

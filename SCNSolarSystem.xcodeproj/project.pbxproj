@@ -11,6 +11,7 @@
 		D923ACDE2767E7C9000BB54C /* SCNSolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */; };
 		D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
 		D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
+		D96BF01027CBD74600B57C4B /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BF00F27CBD74600B57C4B /* Keycode.swift */; };
 		D984995F277921B70038BE81 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984995E277921B70038BE81 /* RotationComponent.swift */; };
 		D9852F70277B839C006E6C42 /* ModelTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9852F6F277B839C006E6C42 /* ModelTools.swift */; };
 		D9B825DD277CD28400B8C101 /* OrbitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B825DC277CD28400B8C101 /* OrbitComponent.swift */; };
@@ -28,6 +29,7 @@
 		D923ACE12767E7CC000BB54C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCNSolarSystem.entitlements; sourceTree = "<group>"; };
 		D923ACEC2767E844000BB54C /* SolarSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemView.swift; sourceTree = "<group>"; };
+		D96BF00F27CBD74600B57C4B /* Keycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keycode.swift; sourceTree = "<group>"; };
 		D984995E277921B70038BE81 /* RotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
 		D9852F6F277B839C006E6C42 /* ModelTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTools.swift; sourceTree = "<group>"; };
 		D9B825DC277CD28400B8C101 /* OrbitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitComponent.swift; sourceTree = "<group>"; };
@@ -69,15 +71,16 @@
 		D923ACDC2767E7C9000BB54C /* SCNSolarSystem */ = {
 			isa = PBXGroup;
 			children = (
+				D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */,
 				D9E918B4277850B5007E8406 /* Functions.swift */,
+				D96BF00F27CBD74600B57C4B /* Keycode.swift */,
 				D9852F6F277B839C006E6C42 /* ModelTools.swift */,
 				D9B825DC277CD28400B8C101 /* OrbitComponent.swift */,
-				D9E8CEE027824FD8005277FC /* Rocket */,
 				D984995E277921B70038BE81 /* RotationComponent.swift */,
-				D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */,
 				D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */,
 				D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */,
 				D923ACEC2767E844000BB54C /* SolarSystemView.swift */,
+				D9E8CEE027824FD8005277FC /* Rocket */,
 			);
 			path = SCNSolarSystem;
 			sourceTree = "<group>";
@@ -129,7 +132,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					D923ACD92767E7C9000BB54C = {
 						CreatedOnToolsVersion = 13.1;
@@ -177,6 +180,7 @@
 				D9E918BB2778523C007E8406 /* SolarSystemDescription.swift in Sources */,
 				D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */,
 				D9B825DD277CD28400B8C101 /* OrbitComponent.swift in Sources */,
+				D96BF01027CBD74600B57C4B /* Keycode.swift in Sources */,
 				D9852F70277B839C006E6C42 /* ModelTools.swift in Sources */,
 				D9E918B5277850B5007E8406 /* Functions.swift in Sources */,
 				D984995F277921B70038BE81 /* RotationComponent.swift in Sources */,

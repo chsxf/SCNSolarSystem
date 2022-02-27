@@ -10,11 +10,15 @@ class SCNSolarSystemApp: NSObject, NSApplicationDelegate {
     static private func setup() -> Void {
         let rect = NSRect(x: 100, y: 100, width: 640, height: 360)
         
+        let view = SolarSystemView(frame: rect)
+        
         let window = NSWindow(contentRect: rect, styleMask: [.titled, .closable, .resizable], backing: .buffered, defer: false)
         window.title = "SKTetris"
-        window.contentView = SolarSystemView(frame: rect)
+        window.contentView = view
         window.makeKeyAndOrderFront(nil)
         window.toggleFullScreen(nil)
+        
+        view.setupFirstResponder()
     }
     
     static private func setupMainMenu() -> Void {
