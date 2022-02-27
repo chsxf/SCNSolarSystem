@@ -7,6 +7,12 @@
 
 import GameplayKit
 
+#if os(macOS)
+typealias FloatType = Double
+#else
+typealias FloatType = Float
+#endif
+
 class RotationComponent: GKSCNNodeComponent {
     
     let rotationPeriod: Float
@@ -25,7 +31,7 @@ class RotationComponent: GKSCNNodeComponent {
     
     override func update(deltaTime seconds: TimeInterval) {
         var rotation = node.eulerAngles
-        rotation.y = rotation.y + (radiansPerSecond * seconds)
+        rotation.y = rotation.y + FloatType(radiansPerSecond * seconds)
         node.eulerAngles = rotation
     }
     

@@ -112,7 +112,11 @@ class ModelTools {
         
         let material = SCNMaterial()
         material.lightingModel = .constant
+        #if os(macOS)
         material.diffuse.contents = NSColor.white
+        #else
+        material.diffuse.contents = UIColor.white
+        #endif
         
         let geometry = SCNGeometry(sources: [verticesSource], elements: [element])
         geometry.firstMaterial = material

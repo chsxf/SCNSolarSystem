@@ -12,6 +12,20 @@
 		D923ACE22767E7CC000BB54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
 		D923ACED2767E844000BB54C /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
 		D96BF01027CBD74600B57C4B /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BF00F27CBD74600B57C4B /* Keycode.swift */; };
+		D96BF01A27CBE72600B57C4B /* SCNSolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BF01927CBE72600B57C4B /* SCNSolarSystemApp.swift */; };
+		D96BF02527CBE74600B57C4B /* ModelTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9852F6F277B839C006E6C42 /* ModelTools.swift */; };
+		D96BF02627CBE74600B57C4B /* SolarSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923ACEC2767E844000BB54C /* SolarSystemView.swift */; };
+		D96BF02727CBE74600B57C4B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918B4277850B5007E8406 /* Functions.swift */; };
+		D96BF02827CBE74600B57C4B /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984995E277921B70038BE81 /* RotationComponent.swift */; };
+		D96BF02927CBE74600B57C4B /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BF00F27CBD74600B57C4B /* Keycode.swift */; };
+		D96BF02A27CBE74600B57C4B /* OrbitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B825DC277CD28400B8C101 /* OrbitComponent.swift */; };
+		D96BF02B27CBE74600B57C4B /* SolarSystemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */; };
+		D96BF02C27CBE74A00B57C4B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E8CEE127824FE3005277FC /* Rocket.swift */; };
+		D96BF02E27CBE7D000B57C4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BF02D27CBE7D000B57C4B /* ViewController.swift */; };
+		D96BF02F27CBE7F400B57C4B /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D9E918B727785105007E8406 /* data.json */; };
+		D96BF03027CBE7F400B57C4B /* ExhaustParticles.scn in Resources */ = {isa = PBXBuildFile; fileRef = D90C10592783918600ED9F11 /* ExhaustParticles.scn */; };
+		D96BF03127CBE7F400B57C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923ACE12767E7CC000BB54C /* Assets.xcassets */; };
+		D96BF03227CBE7F400B57C4B /* Toy_rocket.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D9E8CEDE27824BFA005277FC /* Toy_rocket.usdz */; };
 		D984995F277921B70038BE81 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984995E277921B70038BE81 /* RotationComponent.swift */; };
 		D9852F70277B839C006E6C42 /* ModelTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9852F6F277B839C006E6C42 /* ModelTools.swift */; };
 		D9B825DD277CD28400B8C101 /* OrbitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B825DC277CD28400B8C101 /* OrbitComponent.swift */; };
@@ -30,6 +44,9 @@
 		D923ACE62767E7CC000BB54C /* SCNSolarSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCNSolarSystem.entitlements; sourceTree = "<group>"; };
 		D923ACEC2767E844000BB54C /* SolarSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemView.swift; sourceTree = "<group>"; };
 		D96BF00F27CBD74600B57C4B /* Keycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keycode.swift; sourceTree = "<group>"; };
+		D96BF01727CBE72600B57C4B /* SCNSolarSystem-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCNSolarSystem-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96BF01927CBE72600B57C4B /* SCNSolarSystemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNSolarSystemApp.swift; sourceTree = "<group>"; };
+		D96BF02D27CBE7D000B57C4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D984995E277921B70038BE81 /* RotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
 		D9852F6F277B839C006E6C42 /* ModelTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTools.swift; sourceTree = "<group>"; };
 		D9B825DC277CD28400B8C101 /* OrbitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitComponent.swift; sourceTree = "<group>"; };
@@ -48,15 +65,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D96BF01427CBE72600B57C4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		D923ACD12767E7C9000BB54C = {
 			isa = PBXGroup;
 			children = (
+				D96BF01227CBE6CF00B57C4B /* iOS */,
+				D96BF01127CBE6C700B57C4B /* macOS */,
+				D923ACDB2767E7C9000BB54C /* Products */,
 				D9E918B6277850D3007E8406 /* Resources */,
 				D923ACDC2767E7C9000BB54C /* SCNSolarSystem */,
-				D923ACDB2767E7C9000BB54C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D923ACDA2767E7C9000BB54C /* SCNSolarSystem.app */,
+				D96BF01727CBE72600B57C4B /* SCNSolarSystem-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,12 +104,28 @@
 				D9852F6F277B839C006E6C42 /* ModelTools.swift */,
 				D9B825DC277CD28400B8C101 /* OrbitComponent.swift */,
 				D984995E277921B70038BE81 /* RotationComponent.swift */,
-				D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */,
 				D9E918BA2778523C007E8406 /* SolarSystemDescription.swift */,
 				D923ACEC2767E844000BB54C /* SolarSystemView.swift */,
 				D9E8CEE027824FD8005277FC /* Rocket */,
 			);
 			path = SCNSolarSystem;
+			sourceTree = "<group>";
+		};
+		D96BF01127CBE6C700B57C4B /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D923ACDD2767E7C9000BB54C /* SCNSolarSystemApp.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		D96BF01227CBE6CF00B57C4B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D96BF01927CBE72600B57C4B /* SCNSolarSystemApp.swift */,
+				D96BF02D27CBE7D000B57C4B /* ViewController.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		D9E8CEE027824FD8005277FC /* Rocket */ = {
@@ -124,6 +167,23 @@
 			productReference = D923ACDA2767E7C9000BB54C /* SCNSolarSystem.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D96BF01627CBE72600B57C4B /* SCNSolarSystem-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96BF02227CBE72B00B57C4B /* Build configuration list for PBXNativeTarget "SCNSolarSystem-iOS" */;
+			buildPhases = (
+				D96BF01327CBE72600B57C4B /* Sources */,
+				D96BF01427CBE72600B57C4B /* Frameworks */,
+				D96BF01527CBE72600B57C4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SCNSolarSystem-iOS";
+			productName = "SCNSolarSystem-iOS";
+			productReference = D96BF01727CBE72600B57C4B /* SCNSolarSystem-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -131,11 +191,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					D923ACD92767E7C9000BB54C = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					D96BF01627CBE72600B57C4B = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -153,6 +216,7 @@
 			projectRoot = "";
 			targets = (
 				D923ACD92767E7C9000BB54C /* SCNSolarSystem */,
+				D96BF01627CBE72600B57C4B /* SCNSolarSystem-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -166,6 +230,17 @@
 				D9E918B827785105007E8406 /* data.json in Resources */,
 				D9E8CEDF27824BFA005277FC /* Toy_rocket.usdz in Resources */,
 				D90C105A2783918600ED9F11 /* ExhaustParticles.scn in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96BF01527CBE72600B57C4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96BF02F27CBE7F400B57C4B /* data.json in Resources */,
+				D96BF03127CBE7F400B57C4B /* Assets.xcassets in Resources */,
+				D96BF03227CBE7F400B57C4B /* Toy_rocket.usdz in Resources */,
+				D96BF03027CBE7F400B57C4B /* ExhaustParticles.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +260,23 @@
 				D9E918B5277850B5007E8406 /* Functions.swift in Sources */,
 				D984995F277921B70038BE81 /* RotationComponent.swift in Sources */,
 				D9E8CEE227824FE3005277FC /* Rocket.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96BF01327CBE72600B57C4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96BF02E27CBE7D000B57C4B /* ViewController.swift in Sources */,
+				D96BF02B27CBE74600B57C4B /* SolarSystemDescription.swift in Sources */,
+				D96BF02527CBE74600B57C4B /* ModelTools.swift in Sources */,
+				D96BF02827CBE74600B57C4B /* RotationComponent.swift in Sources */,
+				D96BF02C27CBE74A00B57C4B /* Rocket.swift in Sources */,
+				D96BF02A27CBE74600B57C4B /* OrbitComponent.swift in Sources */,
+				D96BF02627CBE74600B57C4B /* SolarSystemView.swift in Sources */,
+				D96BF02927CBE74600B57C4B /* Keycode.swift in Sources */,
+				D96BF02727CBE74600B57C4B /* Functions.swift in Sources */,
+				D96BF01A27CBE72600B57C4B /* SCNSolarSystemApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +334,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -297,7 +390,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -358,6 +452,71 @@
 			};
 			name = Release;
 		};
+		D96BF02327CBE72B00B57C4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5L9YG7YEUA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xhaleera.SCNSolarSystem;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D96BF02427CBE72B00B57C4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5L9YG7YEUA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xhaleera.SCNSolarSystem;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -375,6 +534,15 @@
 			buildConfigurations = (
 				D923ACEA2767E7CC000BB54C /* Debug */,
 				D923ACEB2767E7CC000BB54C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96BF02227CBE72B00B57C4B /* Build configuration list for PBXNativeTarget "SCNSolarSystem-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96BF02327CBE72B00B57C4B /* Debug */,
+				D96BF02427CBE72B00B57C4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

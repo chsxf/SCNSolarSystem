@@ -8,6 +8,12 @@
 import SceneKit
 import GameplayKit
 
+#if os(macOS)
+typealias ViewRect = NSRect
+#else
+typealias ViewRect = CGRect
+#endif
+
 class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     
     private var lastTime: TimeInterval?
@@ -16,7 +22,7 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
     
     private var rocket: Rocket!
     
-    override init(frame frameRect: NSRect, options: [String : Any]? = nil) {
+    override init(frame frameRect: ViewRect, options: [String : Any]? = nil) {
         super.init(frame: frameRect, options: options)
         
         delegate = self
@@ -125,8 +131,9 @@ class SolarSystemView: SCNView, SCNSceneRendererDelegate {
         rocket.update(deltaTime: diff)
     }
     
+    #if os(macOS)
     func setupFirstResponder() {
         window!.makeFirstResponder(rocket)
     }
-    
+    #endif
 }

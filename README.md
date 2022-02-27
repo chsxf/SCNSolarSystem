@@ -13,7 +13,7 @@ This project uses [gitmoji](https://gitmoji.dev) for its commit messages.
 SceneKit being a proprietary framework from Apple, the game will only be avaiable on the following Apple platforms:
 
 - macOS 10.15+
-- iOS / iPadOS 13+
+- iOS / iPadOS 15+
 
 ## iOS / iPadOS
 
@@ -33,8 +33,12 @@ If you want to play on your iPhone or iPad, please clone this repository, open t
 ## Game Controller
 
 The game uses the Game Controller framework, so only [natively supported controllers](https://support.apple.com/en-us/HT210414) will work.
+On iOS, if no compatible controller is found, a virtual controller is provided as an alternative.
 
-TBD
+| Key                                                                                                               | Command                                                              |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| A / ![ps-x](https://user-images.githubusercontent.com/3322862/118397164-fa6db780-b652-11eb-967c-9e6fd7a51703.png) | Enable thrust                                                        |
+| Left Stick                                                                                                        | Move the rocket up or down, rotate the rockets towards left or right |
 
 # ⚖️ License
 

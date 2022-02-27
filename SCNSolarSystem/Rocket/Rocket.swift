@@ -10,7 +10,15 @@ import SceneKit.ModelIO
 import GameController
 import SpriteKit
 
-class Rocket : NSResponder {
+#if os(macOS)
+typealias RocketSuperType = NSResponder
+typealias SCNFloat = CGFloat
+#else
+typealias RocketSuperType = NSObject
+typealias SCNFloat = Float
+#endif
+
+class Rocket : RocketSuperType {
     
     fileprivate let EXHAUST_LIGHT_INTENSITY: CGFloat = 2000
     
@@ -48,7 +56,11 @@ class Rocket : NSResponder {
         
         exhaustLight = SCNLight()
         exhaustLight.type = .omni
+        #if os(macOS)
         exhaustLight.color = NSColor.orange
+        #else
+        exhaustLight.color = UIColor.orange
+        #endif
         exhaustLight.attenuationEndDistance = 300
         exhaustLight.attenuationStartDistance = 50
         exhaustLight.intensity = 0
@@ -114,10 +126,6 @@ class Rocket : NSResponder {
         engineStarted = false
     }
     
-    func registerExtendedGamepad(_ gamepad: GCExtendedGamepad) {
-        
-    }
-    
     private func gameControllerDidConnect(_ controller: GCController) {
         guard let extendedPad = controller.extendedGamepad else {
             print("Extended gamepad not found")
@@ -160,13 +168,14 @@ class Rocket : NSResponder {
         let quatRotation = simd_quatf(angle: angle, axis: simd_float3(x: 0, y: 1, z: 0))
         rocketRootNode.rotate(by: SCNQuaternion(quatRotation.vector), aroundTarget: rocketRootNode.position)
         
-        rocketRootNode.localTranslate(by: SCNVector3(x: 0, y: 10000.0 * CGFloat(stickYValue) * CGFloat(deltaTime), z: 0))
+        rocketRootNode.localTranslate(by: SCNVector3(x: 0, y: 10000.0 * SCNFloat(stickYValue) * SCNFloat(deltaTime), z: 0))
         
         if engineStarted {
-            rocketRootNode.localTranslate(by: SCNVector3(x: 0, y: 0, z: 25000.0 * CGFloat(deltaTime)))
+            rocketRootNode.localTranslate(by: SCNVector3(x: 0, y: 0, z: 25000.0 * SCNFloat(deltaTime)))
         }
     }
     
+    #if os(macOS)
     override func keyUp(with event: NSEvent) {
         switch Keycode(rawValue: event.keyCode)! {
         case Keycode.space:
@@ -214,4 +223,5 @@ class Rocket : NSResponder {
             break
         }
     }
+    #endif
 }
